@@ -60,7 +60,7 @@ def emoji_helper(user,df):
     emojis = []
     for message in df['message']:
         emojis.extend([c for c in message if c in emoji.EMOJI_DATA])
-    emoji_df = pd.DataFrame(Counter(emojis).most_common(len(Counter(emojis))))
+    emoji_df = pd.DataFrame(Counter(emojis).most_common(), columns=['emoji', 'count'])
     return emoji_df
 
 # analysing time-line
